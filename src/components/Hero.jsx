@@ -1,15 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion"; // For animations
 import {  SignedOut, SignIn, SignUp } from "@clerk/clerk-react";
+import { useSearchParams } from "react-router-dom";
 
 const HeroSection = () => {
-  const [ShowClerkBtn, setShowClerkBtn] = useState(false)
-  const [showSignUp, setshowSignUp] = useState(false)
+  const [ShowClerkBtn, setShowClerkBtn] = useState(false)  // For Show Sign In Button
+  const [showSignUp, setshowSignUp] = useState(false) // For Show Sign Up Button
 
+  // When Serch Parms Change ?sign-in=true
+  const [search, setsearch] = useSearchParams()
+
+  // When Serch Parms Change ?sign-in=true
+  useEffect(()=>{
+    if(search.get('sign-in')){
+      setShowClerkBtn(true);
+    }
+  },[search])
+
+  // For whne user click outside of clerck login/signup div 
   const HandleOverlayClick = (e) =>{
     if (e.target === e.currentTarget) {
-      setShowClerkBtn(false)
-      setshowSignUp(false)
+      setShowClerkBtn(false);
+      setshowSignUp(false);
+      search({});
     }
   }
 
