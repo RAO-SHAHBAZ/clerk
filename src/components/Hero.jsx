@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion"; // For animations
-import { SignIn, SignUp } from "@clerk/clerk-react";
+import {  SignedOut, SignIn, SignUp } from "@clerk/clerk-react";
 
 const HeroSection = () => {
   const [ShowClerkBtn, setShowClerkBtn] = useState(false)
   const [showSignUp, setshowSignUp] = useState(false)
+
   const HandleOverlayClick = (e) =>{
     if (e.target === e.currentTarget) {
       setShowClerkBtn(false)
@@ -32,26 +33,28 @@ const HeroSection = () => {
           <p className="mt-6 text-lg text-gray-600 lg:pr-10">
             We deliver award-winning strategies and innovative designs to elevate your business to the next level. Your success is our mission.
           </p>
-          <div  
-          className="mt-8 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+            <SignedOut>
             <motion.a
            
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setshowSignUp(true)}
-              className="bg-gradient-to-r from-blue-400 to-purple-500 text-white px-8 py-4 rounded-lg font-bold shadow-lg transform transition hover:shadow-xl"
-              
-            >
-              Sign Up
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setShowClerkBtn(true)}
-              className="bg-gray-200 text-gray-800 px-8 py-4 rounded-lg font-bold shadow-lg transform transition hover:bg-gray-300"
-            >
-              SignIn
-            </motion.a>
+           whileHover={{ scale: 1.1 }}
+           whileTap={{ scale: 0.95 }}
+           onClick={() => setshowSignUp(true)}
+           className="bg-gradient-to-r from-blue-400 to-purple-500 text-white px-8 py-4 rounded-lg font-bold shadow-lg transform transition hover:shadow-xl"
+           
+         >
+           Sign Up
+         </motion.a>
+         <motion.a
+           whileHover={{ scale: 1.1 }}
+           whileTap={{ scale: 0.95 }}
+           onClick={() => setShowClerkBtn(true)}
+           className="bg-gray-200 text-gray-800 px-8 py-4 rounded-lg font-bold shadow-lg transform transition hover:bg-gray-300"
+         >
+           SignIn
+         </motion.a>
+            </SignedOut>
+           
           </div>
         </motion.div>
 

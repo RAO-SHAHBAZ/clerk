@@ -1,3 +1,4 @@
+import { SignedIn, UserButton } from "@clerk/clerk-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -26,8 +27,10 @@ const Navbar = () => {
          to="/about">About</Link>
          <Link  className="text-gray-600 text-lg hover:text-gray-800 hover:underline transition-all duration-300"
          to="/contact-us">Contact</Link>
-        
         </div>
+        <SignedIn>
+              <UserButton/>
+            </SignedIn>
 
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
