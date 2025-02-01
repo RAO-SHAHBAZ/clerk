@@ -5,6 +5,12 @@ import { SignIn, SignUp } from "@clerk/clerk-react";
 const HeroSection = () => {
   const [ShowClerkBtn, setShowClerkBtn] = useState(false)
   const [showSignUp, setshowSignUp] = useState(false)
+  const HandleOverlayClick = (e) =>{
+    if (e.target === e.currentTarget) {
+      setShowClerkBtn(false)
+      setshowSignUp(false)
+    }
+  }
 
   return (
     <div className="relative bg-gradient-to-r from-gray-100 via-white to-gray-200">
@@ -102,13 +108,15 @@ const HeroSection = () => {
       </div>
       {
         ShowClerkBtn && 
-        <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
+        <div onClick={HandleOverlayClick}
+        className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center">
           <SignIn/>
         </div>
       }
       {
         showSignUp && 
-        <div className="fixed inset-0 bg-gray-900 bg-opacity-20 flex items-center justify-center">
+        <div onClick={HandleOverlayClick}
+        className="fixed inset-0 bg-gray-900 bg-opacity-20 flex items-center justify-center">
           <SignUp/>
         </div>
       }
