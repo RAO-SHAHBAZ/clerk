@@ -1,7 +1,6 @@
 import { SignedIn, UserButton } from "@clerk/clerk-react";
 import React, { useState } from "react";
 import { FaServicestack } from "react-icons/fa";
-import { LuBriefcaseBusiness } from "react-icons/lu";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
@@ -25,7 +24,7 @@ const Navbar = () => {
         <Link className="text-gray-600 text-lg hover:text-gray-800 hover:underline transition-all duration-300"
          to="/">Home</Link>
          <Link className="text-gray-600 text-lg hover:text-gray-800 hover:underline transition-all duration-300"
-          to="/service">Services</Link>
+          to="/services">Services</Link>
          <Link   className="text-gray-600 text-lg hover:text-gray-800 hover:underline transition-all duration-300"
          to="/about">About</Link>
          <Link  className="text-gray-600 text-lg hover:text-gray-800 hover:underline transition-all duration-300"
