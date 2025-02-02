@@ -1,5 +1,8 @@
 import { SignedIn, UserButton } from "@clerk/clerk-react";
 import React, { useState } from "react";
+import { FaServicestack } from "react-icons/fa";
+import { LuBriefcaseBusiness } from "react-icons/lu";
+import { RiCustomerService2Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -29,7 +32,27 @@ const Navbar = () => {
          to="/contact-us">Contact</Link>
         </div>
         <SignedIn>
-              <UserButton/>
+              <UserButton appearance={{
+                // For Changing Avatar
+                elements:{
+                  avatarBox:"w-12 h-12"
+                }
+              }}>
+                {/* For Giving More Buttons Via Clerk in ClerkUSerButton */}
+                <UserButton.MenuItems>
+                <UserButton.Link 
+                  label='Services'
+                  labelIcon = {<FaServicestack size={15} />}
+                  href='/services'
+                  />
+                <UserButton.Link 
+                  label='Contact Us'
+                  labelIcon = {<RiCustomerService2Fill  size={15} />}
+                  href='/contact-us'
+                  />
+                </UserButton.MenuItems>
+                
+              </UserButton>
             </SignedIn>
 
         {/* Mobile Menu Icon */}

@@ -122,6 +122,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+      {/* For Showing SIgn In and Signout Conditions */}
       {
         ShowClerkBtn && 
         <div onClick={HandleOverlayClick}
